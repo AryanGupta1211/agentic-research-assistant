@@ -1,10 +1,46 @@
+[build-system]
+requires = ["setuptools>=68"]         
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "agentic-research-assistant"
+name = "agentic_research_assistant"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "ipykernel>=7.1.0",
+    "langchain-community>=0.4.1",
+    "langchain-core>=1.2.5",
+    "langchain-google-genai>=4.1.2",
+    "langchain-groq>=1.1.1",
+    "langchain-openai>=1.1.6",
     "langgraph>=1.0.5",
+    "structlog>=25.5.0",
+    "tavily-python>=0.7.17",
+    "wikipedia>=1.4.0",
 ]
+
+authors = [{ name = "Aryan Gupta" }]
+license = { text = "Proprietary" }
+
+[tool.setuptools.packages.find]
+where = ["research_and_analyst"]
+
+[tool.uv.sources]
+agentic-research-assistant = { workspace = true }
+
+[dependency-groups]
+dev = [
+    "agentic-research-assistant",
+    "ipykernel>=7.1.0",
+    "langchain-community>=0.4.1",
+    "langchain-core>=1.2.5",
+    "langchain-google-genai>=4.1.2",
+    "langchain-groq>=1.1.1",
+    "langgraph>=1.0.5",
+    "structlog>=25.5.0",
+    "tavily-python>=0.7.17",
+    "wikipedia>=1.4.0",
+]
+

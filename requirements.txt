@@ -1,2 +1,12 @@
 ipykernel
 langgraph
+langchain_core
+langchain_community
+langchain_groq
+tavily-python
+wikipedia
+langchain-google-genai
+structlog
+langchain_openai
+
+-e .
