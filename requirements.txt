@@ -8,5 +8,6 @@ wikipedia
 langchain-google-genai
 structlog
 langchain_openai
+wikipedia
 
 -e .
