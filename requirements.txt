@@ -9,5 +9,8 @@ langchain-google-genai
 structlog
 langchain_openai
 wikipedia
+python-docx
+reportlab
+langchain_ollama
 
 -e .

@@ -7,6 +7,7 @@ from utils.config_loader import load_config
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
 from langchain_openai import ChatOpenAI
 from langchain_groq import ChatGroq
+from langchain_ollama import ChatOllama
 from logger import GLOBAL_LOGGER as log
 from exception.custom_exception import ResearchAnalystException
 
@@ -146,6 +147,12 @@ class ModelLoader:
                 llm = ChatOpenAI(
                     model=model_name,
                     api_key=self.api_key_mgr.get("OPENAI_API_KEY"),
+                    temperature=temperature,
+                )
+            
+            elif provider == "ollama":
+                llm = ChatOllama(
+                    model=model_name,
                     temperature=temperature,
                 )
 
