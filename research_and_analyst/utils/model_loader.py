@@ -21,7 +21,7 @@ class ApiKeyManager:
         load_dotenv()
 
         self.api_keys = {
-            "OPENAI_API_KEY": os.getenv("OPENAI_API_KEY"),
+            "OPENAI_API_KEY": os.getenv("OPENROUTER_API_KEY"),
             "GOOGLE_API_KEY": os.getenv("GOOGLE_API_KEY"),
             "GROQ_API_KEY": os.getenv("GROQ_API_KEY"),
         }
@@ -125,6 +125,7 @@ class ModelLoader:
             model_name = llm_config.get("model_name")
             temperature = llm_config.get("temperature", 0.2)
             max_tokens = llm_config.get("max_output_tokens", 2048)
+            base_url = llm_config.get("base_url", None)
 
             log.info("Loading LLM", provider=provider, model=model_name)
 
@@ -148,12 +149,15 @@ class ModelLoader:
                     model=model_name,
                     api_key=self.api_key_mgr.get("OPENAI_API_KEY"),
                     temperature=temperature,
+                    base_url=base_url
                 )
             
             elif provider == "ollama":
                 llm = ChatOllama(
+                    base_url=base_url,
                     model=model_name,
                     temperature=temperature,
+                    format="json",
                 )
 
             else:

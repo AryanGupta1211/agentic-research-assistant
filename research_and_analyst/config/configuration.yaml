@@ -20,11 +20,13 @@ llm:
 
   openai:
     provider: "openai"
-    model_name: "gpt-4o"
+    model_name: "stepfun/step-3.5-flash:free"
     temperature: 0
+    base_url: "https://openrouter.ai/api/v1"
 
   ollama:
     provider: "ollama"
-    model_name: "gemma3:4b"
+    base_url: "http://localhost:11434"
+    model_name: "gpt-oss:120b-cloud"
     temperature: 0
     max_output_tokens: 2048
